@@ -13,17 +13,16 @@ from typing import *
 
 
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        # default: len(nums) >= 1
-        x, y = 0, 1
-        while y < len(nums):
-            if nums[x] == nums[y]:
-                y += 1
-            else:
-                nums[x+1], nums[y] = nums[y], nums[x+1]
-                x += 1
-                y += 1
-        return x+1
+    def removeDuplicates(self, nums: List[int]) -> int:    
+        # 双指针
+        slow, fast = 1, 1
+        while fast < len(nums):
+            if nums[slow-1] != nums[fast]:
+                nums[slow] = nums[fast]
+                slow += 1
+            fast += 1
+        return slow
+
 
 
 # @lc code=end
