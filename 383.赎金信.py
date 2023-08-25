@@ -14,6 +14,7 @@ from typing import *
 
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        # HashSet
         ransomCount, magCount = {}, {}
         for c in ransomNote:
             ransomCount[c] = ransomCount.get(c, 0) + 1
